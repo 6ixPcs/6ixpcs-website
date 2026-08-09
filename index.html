@@ -220,9 +220,20 @@
     <div class="text-center mb-14">
       <h2 class="font-brand text-3xl font-black uppercase text-brand-white tracking-widest">SERVICES & TRANSPARENT PRICING</h2>
       <p class="text-slate-400 mt-2 text-sm">No hidden fees. Diagnostic fee is credited directly toward your repair.</p>
+   
+      <!-- Tab Switcher -->
+    <div class="inline-flex p-1 bg-brand-card border border-brand-border rounded-xl mt-6">
+      <button id="tab-pc-btn" onclick="switchServiceTab('pc')" class="px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 bg-brand-aqua text-black shadow-md">
+        <i class="fa-solid fa-desktop mr-2"></i>PC Services
+      </button>
+      <button id="tab-modding-btn" onclick="switchServiceTab('modding')" class="px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 text-slate-400 hover:text-brand-white">
+        <i class="fa-solid fa-microchip mr-2"></i>Modding Services
+      </button>
     </div>
+  </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- TAB 1: PC SERVICES -->
+  <div id="tab-pc-content" class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Service 1 -->
       <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-brand-aqua/60 transition">
         <div class="flex justify-between items-start mb-4">
@@ -263,7 +274,92 @@
         <span class="text-xs text-slate-500 font-mono">Free estimate before ordering parts</span>
       </div>
     </div>
-  </section>
+<!-- TAB 2: MODDING SERVICES -->
+  <div id="tab-modding-content" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
+    <!-- Mod Service 1 -->
+    <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-brand-aqua/60 transition">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">Custom Cable Sleeving</h3>
+        <span class="text-brand-aqua font-brand font-black text-xl">$45</span>
+      </div>
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed">Custom PSU extension routing, color-matched sleeving, cable comb alignment, and clean back-panel train management.</p>
+      <span class="text-xs text-slate-500 font-mono">Parts excluded</span>
+    </div>
+
+    <!-- Mod Service 2 -->
+    <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-white/60 transition">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">GPU Thermal Mod & Mount</h3>
+        <span class="text-brand-white font-brand font-black text-xl">$75</span>
+      </div>
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed">VRAM thermal pad replacement, GPU core repaste, vertical bracket fitting, and PCIe 4.0 riser cable stress testing.</p>
+      <span class="text-xs text-slate-500 font-mono">Significantly reduces VRAM delta temps</span>
+    </div>
+
+    <!-- Mod Service 3 -->
+    <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-brand-aqua/60 transition">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">In-Case Sensor Panel</h3>
+        <span class="text-brand-aqua font-brand font-black text-xl">$85</span>
+      </div>
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed">Internal LCD screen installation, custom AIDA64 / HWiNFO sensor theme layout, and concealed internal wiring harness.</p>
+      <span class="text-xs text-slate-500 font-mono">Requires internal USB & HDMI header</span>
+    </div>
+
+    <!-- Mod Service 4 -->
+    <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-white/60 transition">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">ARGB Hub & Light Sync</h3>
+        <span class="text-brand-white font-brand font-black text-xl">$50</span>
+      </div>
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed">PWM fan hub wiring, addressable RGB LED strip integration, and unified single-software lighting profile configuration.</p>
+      <span class="text-xs text-slate-500 font-mono">Configured via SignalRGB or OpenRGB</span>
+    </div>
+  </div>
+
+<!-- TAB 2: MODDING SERVICES -->
+  <div id="tab-modding-content" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
+    <!-- Mod Service 1 -->
+    <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-brand-aqua/60 transition">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">Custom Cable Sleeving</h3>
+        <span class="text-brand-aqua font-brand font-black text-xl">$45</span>
+      </div>
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed">Custom PSU extension routing, color-matched sleeving, cable comb alignment, and clean back-panel train management.</p>
+      <span class="text-xs text-slate-500 font-mono">Parts excluded</span>
+    </div>
+
+    <!-- Mod Service 2 -->
+    <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-white/60 transition">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">GPU Thermal Mod & Mount</h3>
+        <span class="text-brand-white font-brand font-black text-xl">$75</span>
+      </div>
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed">VRAM thermal pad replacement, GPU core repaste, vertical bracket fitting, and PCIe 4.0 riser cable stress testing.</p>
+      <span class="text-xs text-slate-500 font-mono">Significantly reduces VRAM delta temps</span>
+    </div>
+
+    <!-- Mod Service 3 -->
+    <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-brand-aqua/60 transition">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">In-Case Sensor Panel</h3>
+        <span class="text-brand-aqua font-brand font-black text-xl">$85</span>
+      </div>
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed">Internal LCD screen installation, custom AIDA64 / HWiNFO sensor theme layout, and concealed internal wiring harness.</p>
+      <span class="text-xs text-slate-500 font-mono">Requires internal USB & HDMI header</span>
+    </div>
+
+    <!-- Mod Service 4 -->
+    <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-white/60 transition">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">ARGB Hub & Light Sync</h3>
+        <span class="text-brand-white font-brand font-black text-xl">$50</span>
+      </div>
+      <p class="text-slate-400 text-sm mb-4 leading-relaxed">PWM fan hub wiring, addressable RGB LED strip integration, and unified single-software lighting profile configuration.</p>
+      <span class="text-xs text-slate-500 font-mono">Configured via SignalRGB or OpenRGB</span>
+    </div>
+  </div>
+</section>
 
   <!-- Repair / Build Quote Form -->
   <section id="quote-form" class="py-20 bg-brand-pureBlack border-t border-brand-border">
@@ -325,6 +421,29 @@
   <!-- TikTok Embed Script -->
 <script async src="https://www.tiktok.com/embed.js"></script>
 <script async src="https://www.instagram.com/embed.js"></script>
+
+<script>
+  function switchServiceTab(tab) {
+    const pcContent = document.getElementById('tab-pc-content');
+    const moddingContent = document.getElementById('tab-modding-content');
+    const pcBtn = document.getElementById('tab-pc-btn');
+    const moddingBtn = document.getElementById('tab-modding-btn');
+
+    if (tab === 'pc') {
+      pcContent.classList.remove('hidden');
+      moddingContent.classList.add('hidden');
+      
+      pcBtn.className = "px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 bg-brand-aqua text-black shadow-md";
+      moddingBtn.className = "px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 text-slate-400 hover:text-brand-white";
+    } else {
+      moddingContent.classList.remove('hidden');
+      pcContent.classList.add('hidden');
+      
+      moddingBtn.className = "px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 bg-brand-aqua text-black shadow-md";
+      pcBtn.className = "px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-200 text-slate-400 hover:text-brand-white";
+    }
+  }
+</script>
   
 </body>
 </html>
