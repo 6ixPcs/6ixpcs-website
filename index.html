@@ -3,171 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6IX PCS | Custom PC Builds & Tech Repair Toronto</title>
+  <title>6IX PCS | Custom PC Builds & Tech Repair</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    @font-face {
+      font-family: 'BLANKA';
+      src: url('Blanka-Regular.otf') format('opentype'),
+           url('Blanka-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'BLACKPAST';
+      src: url('Blackpast.otf') format('opentype'),
+           url('Blackpast.ttf') format('truetype');
+      font-weight: normal;
+      font-display: swap;
+    }
+
+    .font-brand {
+      font-family: 'BLANKA', 'BLACKPAST', sans-serif;
+    }
+
+    .glow-aqua { box-shadow: 0 0 25px rgba(0, 245, 212, 0.25); }
+    .glow-white { box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); }
+    .glass { background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(12px); }
+  </style>
+
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
           colors: {
             brand: {
-              cyan: '#00f0ff',
-              purple: '#7000ff',
-              dark: '#0a0c10',
-              card: '#12151e'
+              aqua: '#00F5D4',
+              aquaDark: '#00C4AA',
+              black: '#000000',
+              card: '#0A0C10',
+              border: '#1A202C',
+              white: '#FFFFFF'
             }
           }
         }
       }
     }
   </script>
-  <style>
-    .glow-cyan { box-shadow: 0 0 20px rgba(0, 240, 255, 0.25); }
-    .glow-purple { box-shadow: 0 0 20px rgba(112, 0, 255, 0.25); }
-    .glass { background: rgba(18, 21, 30, 0.75); backdrop-filter: blur(12px); }
-  </style>
 </head>
-<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-cyan selection:text-black">
+<body class="bg-brand-black text-slate-100 font-sans antialiased selection:bg-brand-aqua selection:text-black">
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 glass border-b border-slate-800/80">
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 w-full z-50 glass border-b border-brand-border">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <span class="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-purple">6IX PCS</span>
-      </div>
-      <div class="flex items-center space-x-4">
-        <a href="#socials" class="text-slate-400 hover:text-brand-cyan transition"><i class="fa-brands font-lg fa-tiktok"></i></a>
-        <a href="#socials" class="text-slate-400 hover:text-brand-purple transition"><i class="fa-brands font-lg fa-instagram"></i></a>
-        <a href="tel:YOUR_PHONE_NUMBER" class="bg-gradient-to-r from-brand-cyan to-brand-purple text-black font-bold px-4 py-2 rounded-lg hover:opacity-90 transition shadow-lg glow-cyan text-sm">
-          Call / Text Us
+      <!-- 6IX PCS Brand Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-full bg-brand-aqua flex items-center justify-center font-brand text-black font-extrabold text-lg group-hover:scale-105 transition">
+          SiX
+        </div>
+        <span class="font-brand text-2xl tracking-widest text-brand-white">PCS</span>
+      </a>
+
+      <!-- Quick Contact Actions -->
+      <div class="flex items-center space-x-5">
+        <a href="https://tiktok.com/@YOUR_TIKTOK" target="_blank" class="text-slate-400 hover:text-brand-aqua transition text-xl"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://instagram.com/@YOUR_INSTAGRAM" target="_blank" class="text-slate-400 hover:text-brand-white transition text-xl"><i class="fa-brands fa-instagram"></i></a>
+        <a href="tel:YOUR_PHONE_NUMBER" class="font-brand text-xs md:text-sm bg-brand-aqua text-black px-4 py-2.5 rounded-xl font-bold hover:bg-brand-aquaDark transition shadow-lg glow-aqua uppercase tracking-wider">
+          CALL / TEXT
         </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="pt-32 pb-16 px-4 max-w-5xl mx-auto text-center">
-    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan text-xs font-semibold mb-6">
-      <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
-      <span>Scarborough & GTA • Same-Day Diagnostics</span>
+  <section class="pt-36 pb-20 px-4 max-w-5xl mx-auto text-center">
+    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-brand-aqua/40 bg-brand-aqua/10 text-brand-aqua text-xs font-semibold mb-6">
+      <span class="w-2 h-2 rounded-full bg-brand-aqua animate-pulse"></span>
+      <span class="tracking-wide uppercase font-mono">Custom PC Builds & Diagnostics</span>
     </div>
-    <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
+
+    <h1 class="font-brand text-4xl md:text-6xl font-black tracking-wider mb-6 leading-tight uppercase text-brand-white">
       CUSTOM GAMING BUILDS & <br/>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-purple-400 to-brand-purple">
-        NO-BS COMPUTER REPAIR
-      </span>
+      <span class="text-brand-aqua">NO-BS PC REPAIR</span>
     </h1>
-    <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-      Custom PC assembly, cable management, hardware diagnostics, and laptop upgrades in Malvern & Toronto.
+
+    <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+      Custom hardware assembly, thermal tuning, bench troubleshooting, and component upgrades.
     </p>
+
     <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <a href="sms:YOUR_PHONE_NUMBER" class="bg-brand-cyan text-black font-bold px-8 py-4 rounded-xl text-lg hover:bg-cyan-300 transition glow-cyan flex items-center justify-center space-x-2">
-        <i class="fa-solid fa-message"></i>
-        <span>Text For Immediate Quote</span>
+      <a href="#quote-form" class="font-brand bg-brand-aqua text-black px-8 py-4 rounded-xl text-sm tracking-widest uppercase font-bold hover:bg-brand-aquaDark transition glow-aqua flex items-center justify-center space-x-2">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>Get Free Repair Quote</span>
       </a>
-      <a href="#services" class="border border-slate-700 hover:border-brand-purple bg-slate-900/50 font-semibold px-8 py-4 rounded-xl text-lg transition flex items-center justify-center space-x-2">
-        <span>View Repair Pricing</span>
+      <a href="#services" class="font-brand border border-brand-border hover:border-brand-white bg-slate-900/50 text-brand-white px-8 py-4 rounded-xl text-sm tracking-widest uppercase transition flex items-center justify-center space-x-2">
+        <span>View Pricing</span>
       </a>
-    </div>
-  </section>
-
-  <!-- TikTok / Media Showcase -->
-  <section id="socials" class="py-12 bg-slate-950/50 border-y border-slate-800/50">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">FEATURED BUILDS & TIMELAPSES</h2>
-        <p class="text-slate-400 text-sm mt-1">Check out our latest work on TikTok & Instagram</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Social Card 1 -->
-        <div class="bg-brand-card border border-slate-800 rounded-2xl overflow-hidden hover:border-brand-cyan/50 transition glow-cyan">
-          <div class="aspect-[9/16] bg-slate-900 flex items-center justify-center relative">
-            <!-- Replace this placeholder with TikTok Embed Code or Video Thumbnail -->
-            <div class="text-center p-6">
-              <i class="fa-brands fa-tiktok text-4xl text-brand-cyan mb-2"></i>
-              <p class="text-sm font-semibold text-slate-300">Clean Lian-Li Build Timelapse</p>
-              <a href="https://tiktok.com/@YOUR_TIKTOK" target="_blank" class="inline-block mt-4 text-xs bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-lg text-brand-cyan">Watch on TikTok &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Social Card 2 -->
-        <div class="bg-brand-card border border-slate-800 rounded-2xl overflow-hidden hover:border-brand-purple/50 transition glow-purple">
-          <div class="aspect-[9/16] bg-slate-900 flex items-center justify-center relative">
-            <div class="text-center p-6">
-              <i class="fa-brands fa-tiktok text-4xl text-brand-purple mb-2"></i>
-              <p class="text-sm font-semibold text-slate-300">Diagnosing Dead GPU on Bench</p>
-              <a href="https://tiktok.com/@YOUR_TIKTOK" target="_blank" class="inline-block mt-4 text-xs bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-lg text-brand-purple">Watch on TikTok &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Social Card 3 -->
-        <div class="bg-brand-card border border-slate-800 rounded-2xl overflow-hidden hover:border-brand-cyan/50 transition glow-cyan">
-          <div class="aspect-[9/16] bg-slate-900 flex items-center justify-center relative">
-            <div class="text-center p-6">
-              <i class="fa-brands fa-instagram text-4xl text-pink-500 mb-2"></i>
-              <p class="text-sm font-semibold text-slate-300">Cable Management Before/After</p>
-              <a href="https://instagram.com/@YOUR_INSTAGRAM" target="_blank" class="inline-block mt-4 text-xs bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-lg text-pink-400">View on IG &rarr;</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- Services & Flat Pricing -->
-  <section id="services" class="py-16 max-w-5xl mx-auto px-4">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-black">SERVICES & TRANSPARENT PRICING</h2>
-      <p class="text-slate-400 mt-2">No hidden fees. Diagnostic fee is credited toward your repair.</p>
+  <section id="services" class="py-20 max-w-5xl mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="font-brand text-3xl font-black uppercase text-brand-white tracking-widest">SERVICES & PRICING</h2>
+      <p class="text-slate-400 mt-2 text-sm">Transparent bench pricing with fast turnaround times.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-brand-card border border-slate-800/80 p-6 rounded-2xl hover:border-brand-cyan/40 transition">
+      <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-brand-aqua/60 transition">
         <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold">Custom PC Assembly</h3>
-          <span class="text-brand-cyan font-black text-xl">$80 - $120</span>
+          <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">Custom PC Assembly</h3>
+          <span class="text-brand-aqua font-brand font-black text-xl">$80 - $120</span>
         </div>
-        <p class="text-slate-400 text-sm mb-4">Full assembly from individual parts, stress testing, thermal paste application, cable management, and Windows 11 installation.</p>
-        <span class="text-xs text-slate-500 font-mono">Turnaround: 24-48 Hours</span>
+        <p class="text-slate-400 text-sm mb-4 leading-relaxed">Complete build from scratch, cable management, BIOS flashing, thermal testing, and clean OS setup.</p>
       </div>
 
-      <div class="bg-brand-card border border-slate-800/80 p-6 rounded-2xl hover:border-brand-purple/40 transition">
+      <div class="bg-brand-card border border-brand-border p-7 rounded-2xl hover:border-brand-white/60 transition">
         <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold">Bench Diagnostic & Cleaning</h3>
-          <span class="text-brand-purple font-black text-xl">$50</span>
+          <h3 class="font-brand text-lg font-bold text-brand-white uppercase tracking-wider">Bench Diagnostic</h3>
+          <span class="text-brand-white font-brand font-black text-xl">$50</span>
         </div>
-        <p class="text-slate-400 text-sm mb-4">Full hardware error check, RAM/GPU stress test, thermal throttling check, and deep compressed air blowout.</p>
-        <span class="text-xs text-slate-500 font-mono">Credited toward repair if approved</span>
-      </div>
-
-      <div class="bg-brand-card border border-slate-800/80 p-6 rounded-2xl hover:border-brand-cyan/40 transition">
-        <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold">SSD Clone & OS Refresh</h3>
-          <span class="text-brand-cyan font-black text-xl">$90</span>
-        </div>
-        <p class="text-slate-400 text-sm mb-4">Clone your slow hard drive to a fast NVMe/SSD without losing data, or perform a clean Windows reinstall.</p>
-        <span class="text-xs text-slate-500 font-mono">Same-day turnaround available</span>
-      </div>
-
-      <div class="bg-brand-card border border-slate-800/80 p-6 rounded-2xl hover:border-brand-purple/40 transition">
-        <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-bold">Laptop Hardware Repair</h3>
-          <span class="text-brand-purple font-black text-xl">Parts + $60 Labor</span>
-        </div>
-        <p class="text-slate-400 text-sm mb-4">Screen replacements, battery swaps, keyboard replacements, and power jack repairs.</p>
-        <span class="text-xs text-slate-500 font-mono">Free estimate before ordering parts</span>
+        <p class="text-slate-400 text-sm mb-4 leading-relaxed">Complete hardware troubleshooting (no display, crashes, overheating). Diagnostic fee is credited toward repair cost.</p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-800/80 py-8 text-center text-slate-500 text-sm">
-    <p>&copy; 2026 6IX PCS. Malvern, Scarborough, ON.</p>
+  <!-- Quote Form -->
+  <section id="quote-form" class="py-20 bg-brand-black border-t border-brand-border">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-brand text-3xl font-black uppercase tracking-widest text-brand-white">GET A FREE REPAIR QUOTE</h2>
+      </div>
+
+      <form action="https://api.web3forms.com/submit" method="POST" class="bg-brand-card border border-brand-border p-8 rounded-2xl shadow-2xl glow-aqua space-y-6">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-brand uppercase tracking-wider text-slate-300 mb-2">Your Name *</label>
+            <input type="text" name="name" required class="w-full bg-brand-black border border-brand-border rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-brand-aqua transition text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-brand uppercase tracking-wider text-slate-300 mb-2">Phone Number *</label>
+            <input type="tel" name="phone" required class="w-full bg-brand-black border border-brand-border rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-brand-aqua transition text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-brand uppercase tracking-wider text-slate-300 mb-2">Describe Your PC Issue or Build Specs *</label>
+          <textarea name="message" rows="4" required class="w-full bg-brand-black border border-brand-border rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-brand-aqua transition text-sm resize-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full font-brand font-bold bg-brand-aqua text-black py-4 rounded-xl text-sm tracking-widest uppercase hover:bg-brand-aquaDark transition shadow-lg glow-aqua">
+          Submit Quote Request
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t border-brand-border py-8 text-center text-slate-500 text-xs font-mono">
+    <p>&copy; 2026 6IX PCS. All rights reserved.</p>
   </footer>
 
 </body>
