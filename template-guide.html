@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nintendo Switch Hekate & Atmosphere Post-Mod Guide | 6IX PCS LABS</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nintendo Switch Hekate & Atmosphere Post-Mod Guide | 6IX PCS LABS">
+  <meta property="og:description" content="Step-by-step setup guide for your modded Nintendo Switch: booting emuMMC, safe payload injection, SD card maintenance, and staying safe.">
+  <meta property="og:image" content="https://6ixPcs.github.io/6ixpcs-website/logo.png">
+  <meta property="og:type" content="article">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'BLANKA';
+      src: url('Blanka-Regular.otf') format('opentype'), url('Blanka-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'BLACKPAST';
+      src: url('Blackpast.otf') format('opentype'), url('Blackpast.ttf') format('truetype');
+      font-display: swap;
+    }
+    .font-brand { font-family: 'BLANKA', 'BLACKPAST', 'Syne', sans-serif; }
+    .glow-aqua { box-shadow: 0 0 25px rgba(0, 245, 212, 0.25); }
+    .glass { background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); }
+    html { scroll-behavior: smooth; }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              aqua: '#00F5D4',
+              aquaDark: '#00C4AA',
+              pureBlack: '#000000',
+              card: '#0A0C10',
+              border: '#1A202C',
+              white: '#FFFFFF'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-pureBlack text-slate-100 font-sans antialiased selection:bg-brand-aqua selection:text-black">
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 w-full z-50 glass border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <div class="w-11 h-11 rounded-full bg-brand-aqua flex items-center justify-center font-brand text-black font-extrabold text-xl group-hover:scale-105 transition shadow-lg glow-aqua">
+          SiX
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="font-brand text-2xl tracking-widest text-brand-white">PCS</span>
+          <span class="text-xs font-mono uppercase bg-brand-aqua/15 text-brand-aqua border border-brand-aqua/40 px-2 py-0.5 rounded font-bold">LABS</span>
+        </div>
+      </a>
+
+      <div class="flex items-center space-x-4 md:space-x-6">
+        <a href="labs.html" class="text-xs md:text-sm font-mono text-slate-300 hover:text-brand-aqua transition flex items-center">
+          <i class="fa-solid fa-layer-group mr-1.5"></i> All Guides
+        </a>
+        <a href="index.html#quote-form" class="font-brand text-xs md:text-sm bg-brand-aqua text-black px-4 py-2.5 rounded-xl font-bold hover:bg-brand-aquaDark transition shadow-lg glow-aqua uppercase tracking-wider">
+          GET QUOTE
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article Container -->
+  <main class="pt-32 pb-20 max-w-4xl mx-auto px-4">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center space-x-2 text-xs font-mono text-slate-500 mb-6">
+      <a href="index.html" class="hover:text-brand-aqua transition">Home</a>
+      <span>/</span>
+      <a href="labs.html" class="hover:text-brand-aqua transition">Labs</a>
+      <span>/</span>
+      <span class="text-brand-aqua">Console Guides</span>
+    </nav>
+
+    <!-- Header & Meta -->
+    <header class="border-b border-brand-border pb-8 mb-10">
+      <div class="flex flex-wrap gap-2 items-center mb-4 text-xs font-mono">
+        <span class="bg-purple-500/15 text-purple-300 border border-purple-500/30 px-3 py-1 rounded-full uppercase font-semibold">
+          <i class="fa-solid fa-gamepad mr-1"></i> Console Guide
+        </span>
+        <span class="text-slate-400"><i class="fa-regular fa-clock mr-1"></i> 8 Min Read</span>
+        <span class="text-slate-500">•</span>
+        <span class="text-slate-400"><i class="fa-regular fa-calendar mr-1"></i> Updated Oct 2026</span>
+        <span class="text-slate-500">•</span>
+        <span class="text-brand-aqua"><i class="fa-solid fa-user-shield mr-1"></i> Tested by 6IX PCS</span>
+      </div>
+
+      <h1 class="font-brand text-3xl md:text-5xl font-black uppercase text-brand-white tracking-wide mb-4 leading-tight">
+        Nintendo Switch Hekate & Atmosphere: Post-Mod Setup & Safe Usage Guide
+      </h1>
+
+      <p class="text-slate-400 text-base md:text-lg leading-relaxed">
+        Picked up your modded Switch or just finished your CFW install? Here is the complete post-mod checklist for booting emuMMC safely, managing your SD card, preventing Nintendo bans, and installing homebrew.
+      </p>
+    </header>
+
+    <!-- Guide Summary / Quick Specs Card -->
+    <section class="bg-brand-card border border-brand-border rounded-2xl p-6 md:p-8 mb-10 shadow-xl">
+      <h3 class="font-brand text-sm uppercase tracking-widest text-brand-aqua mb-4 flex items-center">
+        <i class="fa-solid fa-clipboard-check mr-2"></i> Guide Quick Summary & Requirements
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+        <div class="bg-brand-pureBlack border border-brand-border p-3.5 rounded-xl">
+          <span class="text-slate-500 block mb-1">COMPATIBILITY</span>
+          <span class="text-brand-white font-bold">V1 Unpatched / Modchip</span>
+        </div>
+        <div class="bg-brand-pureBlack border border-brand-border p-3.5 rounded-xl">
+          <span class="text-slate-500 block mb-1">DIFFICULTY</span>
+          <span class="text-emerald-400 font-bold">Beginner Friendly</span>
+        </div>
+        <div class="bg-brand-pureBlack border border-brand-border p-3.5 rounded-xl">
+          <span class="text-slate-500 block mb-1">ESTIMATED TIME</span>
+          <span class="text-brand-white font-bold">10 - 15 Minutes</span>
+        </div>
+        <div class="bg-brand-pureBlack border border-brand-border p-3.5 rounded-xl">
+          <span class="text-slate-500 block mb-1">BAN RISK</span>
+          <span class="text-emerald-400 font-bold">Zero (If DNS active)</span>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-400 font-mono">
+        <div><strong>What You Need:</strong> USB-C Cable, MicroSD Card Reader, TegraRcmGUI (PC) or RCMloader.</div>
+      </div>
+    </section>
+
+    <!-- Important Notice / Warning Box -->
+    <aside class="bg-amber-500/10 border-l-4 border-amber-500 p-5 rounded-r-2xl mb-10">
+      <div class="flex items-start">
+        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-lg mr-3 mt-0.5"></i>
+        <div>
+          <h4 class="font-brand text-sm uppercase tracking-wider text-amber-300 font-bold">Crucial Nintendo Online Safety Rule</h4>
+          <p class="text-slate-300 text-xs md:text-sm mt-1 leading-relaxed">
+            Never connect to Nintendo's official servers while booted into your <strong>CFW emuMMC</strong>. Always keep <em>Exosphere</em> or <em>90DNS / DNS MITM</em> enabled to blank out your serial number and block telemetry.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Quick Table of Contents -->
+    <nav class="bg-brand-card/60 border border-brand-border rounded-2xl p-6 mb-12">
+      <h3 class="font-brand text-xs uppercase tracking-widest text-slate-400 mb-3 flex items-center">
+        <i class="fa-solid fa-list-ol mr-2 text-brand-aqua"></i> In This Guide
+      </h3>
+      <ol class="space-y-2 text-sm text-slate-300">
+        <li><a href="#step-1" class="hover:text-brand-aqua transition flex items-center"><span class="font-mono text-xs text-brand-aqua mr-2">01.</span> Understanding SysNAND vs. EmuNAND (Dual Boot)</a></li>
+        <li><a href="#step-2" class="hover:text-brand-aqua transition flex items-center"><span class="font-mono text-xs text-brand-aqua mr-2">02.</span> Booting into Hekate & Launching Atmosphere</a></li>
+        <li><a href="#step-3" class="hover:text-brand-aqua transition flex items-center"><span class="font-mono text-xs text-brand-aqua mr-2">03.</span> Accessing the Homebrew Menu (Title Override)</a></li>
+        <li><a href="#step-4" class="hover:text-brand-aqua transition flex items-center"><span class="font-mono text-xs text-brand-aqua mr-2">04.</span> Safely Managing SD Card Files (DBI MTP Mode)</a></li>
+        <li><a href="#troubleshooting" class="hover:text-brand-aqua transition flex items-center"><span class="font-mono text-xs text-brand-aqua mr-2">05.</span> Troubleshooting & Common Errors</a></li>
+      </ol>
+    </nav>
+
+    <!-- GUIDE CONTENT STEPS -->
+    <article class="space-y-12 text-slate-300 leading-relaxed">
+
+      <!-- STEP 1 -->
+      <section id="step-1" class="scroll-mt-28 border-b border-brand-border pb-10">
+        <div class="flex items-center space-x-3 mb-4">
+          <span class="w-8 h-8 rounded-lg bg-brand-aqua text-black font-brand font-black flex items-center justify-center text-sm shadow glow-aqua">
+            1
+          </span>
+          <h2 class="font-brand text-xl md:text-2xl font-bold uppercase text-brand-white tracking-wide">
+            Understanding SysNAND vs. EmuNAND
+          </h2>
+        </div>
+        
+        <p class="mb-4">
+          When 6IX PCS mods your Nintendo Switch, your internal storage is partitioned into two completely separated environments:
+        </p>
+
+        <ul class="list-disc list-inside space-y-2 text-sm text-slate-400 ml-2 mb-6">
+          <li><strong class="text-brand-white">Stock / SysNAND:</strong> Your clean Nintendo system. Use this to play legitimate games online, access the eShop, and play with friends on Nintendo Switch Online.</li>
+          <li><strong class="text-brand-white">EmuMMC / EmuNAND:</strong> A clone of the system running entirely off your MicroSD card. This is where Atmosphere, homebrew apps, mods, and backups reside.</li>
+        </ul>
+
+        <!-- Visual / Screenshot Box -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl overflow-hidden p-4 mb-4">
+          <div class="bg-black/60 rounded-xl h-48 md:h-64 flex flex-col items-center justify-center border border-brand-border/50 text-slate-500 font-mono text-xs">
+            <i class="fa-regular fa-image text-4xl mb-2 text-slate-600"></i>
+            <span>[Screenshot: Hekate Boot Options Screen (emuMMC vs Stock)]</span>
+          </div>
+          <p class="text-xs text-slate-500 font-mono mt-2 text-center">Figure 1: The dual-boot selection menu inside Hekate CTCaer.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-aqua/30 p-4 rounded-xl text-xs font-mono text-slate-300">
+          <i class="fa-solid fa-lightbulb text-brand-aqua mr-1.5"></i>
+          <strong>6IX PCS Tip:</strong> As long as you never connect your emuMMC to Nintendo's servers without DNS blocking, your SysNAND remains safe for clean online play.
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section id="step-2" class="scroll-mt-28 border-b border-brand-border pb-10">
+        <div class="flex items-center space-x-3 mb-4">
+          <span class="w-8 h-8 rounded-lg bg-brand-aqua text-black font-brand font-black flex items-center justify-center text-sm shadow glow-aqua">
+            2
+          </span>
+          <h2 class="font-brand text-xl md:text-2xl font-bold uppercase text-brand-white tracking-wide">
+            Booting into Hekate & Launching Atmosphere
+          </h2>
+        </div>
+
+        <p class="mb-4">
+          If your Switch completely powers down or runs out of battery, follow these quick steps to boot back into custom firmware:
+        </p>
+
+        <ol class="space-y-3 text-sm text-slate-300 ml-4 list-decimal mb-6">
+          <li>Insert your RCM jig into the right Joy-Con rail (or power on if your console has an internal modchip).</li>
+          <li>Hold <code class="bg-brand-card border border-brand-border px-2 py-0.5 rounded text-brand-aqua font-mono text-xs">Volume +</code> and tap the <code class="bg-brand-card border border-brand-border px-2 py-0.5 rounded text-brand-aqua font-mono text-xs">Power</code> button once.</li>
+          <li>Send the <code class="bg-brand-card border border-brand-border px-2 py-0.5 rounded text-brand-aqua font-mono text-xs">payload.bin</code> (Hekate) using TegraRcmGUI on PC or your dongle.</li>
+          <li>Tap <strong>Launch</strong> on the touchscreen, then select <strong>Atmosphere CFW (emuMMC)</strong>.</li>
+        </ol>
+
+        <!-- Code / Filepath Box -->
+        <div class="bg-brand-card border border-brand-border rounded-xl p-4 font-mono text-xs text-slate-300">
+          <div class="text-slate-500 mb-1">// Active Atmosphere config path on SD:</div>
+          <div class="text-brand-aqua">SD:\bootloader\hekate_ipl.ini</div>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section id="step-3" class="scroll-mt-28 border-b border-brand-border pb-10">
+        <div class="flex items-center space-x-3 mb-4">
+          <span class="w-8 h-8 rounded-lg bg-brand-aqua text-black font-brand font-black flex items-center justify-center text-sm shadow glow-aqua">
+            3
+          </span>
+          <h2 class="font-brand text-xl md:text-2xl font-bold uppercase text-brand-white tracking-wide">
+            Opening Homebrew: Applet Mode vs Full RAM Mode
+          </h2>
+        </div>
+
+        <p class="mb-4">
+          A common mistake is opening the Album app directly. Doing this launches Homebrew in <em>Applet Mode</em> with limited RAM (less than 400MB), which can cause apps like emulators or game installers to crash.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+          <div class="bg-brand-card border border-red-500/30 p-4 rounded-xl">
+            <h4 class="font-mono text-xs uppercase text-red-400 font-bold mb-1"><i class="fa-solid fa-xmark mr-1"></i> Applet Mode (Avoid)</h4>
+            <p class="text-xs text-slate-400">Clicking Album directly. Limited memory causes crashes in demanding homebrew.</p>
+          </div>
+          <div class="bg-brand-card border border-emerald-500/30 p-4 rounded-xl">
+            <h4 class="font-mono text-xs uppercase text-emerald-400 font-bold mb-1"><i class="fa-solid fa-check mr-1"></i> Full RAM Mode (Recommended)</h4>
+            <p class="text-xs text-slate-400">Hold the <strong class="text-white">R</strong> shoulder button while launching any installed game title.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section id="step-4" class="scroll-mt-28 border-b border-brand-border pb-10">
+        <div class="flex items-center space-x-3 mb-4">
+          <span class="w-8 h-8 rounded-lg bg-brand-aqua text-black font-brand font-black flex items-center justify-center text-sm shadow glow-aqua">
+            4
+          </span>
+          <h2 class="font-brand text-xl md:text-2xl font-bold uppercase text-brand-white tracking-wide">
+            Transferring Files Without Removing Your SD Card
+          </h2>
+        </div>
+
+        <p class="mb-4">
+          Continuously popping out the Switch's MicroSD card wears out the fragile reader socket. Instead, use <strong>DBI</strong> to drag-and-drop directly from Windows Explorer:
+        </p>
+
+        <ol class="space-y-2 text-sm text-slate-300 ml-4 list-decimal mb-6">
+          <li>Connect your Switch to your Windows PC with a quality USB-C cable.</li>
+          <li>Launch Homebrew (Full RAM mode) and open <strong>DBI Installer</strong>.</li>
+          <li>Select <strong>Run MTP Responder</strong>.</li>
+          <li>Your Switch appears in "This PC" as a drive named <em>Switch</em>. Drag files directly into <code class="text-brand-aqua font-mono text-xs">MicroSD install</code>!</li>
+        </ol>
+      </section>
+
+      <!-- TROUBLESHOOTING / FAQ -->
+      <section id="troubleshooting" class="scroll-mt-28 pt-4">
+        <h2 class="font-brand text-xl md:text-2xl font-bold uppercase text-brand-white tracking-wide mb-6 flex items-center">
+          <i class="fa-solid fa-circle-question text-brand-aqua mr-2"></i> Troubleshooting Common Issues
+        </h2>
+
+        <div class="space-y-4">
+          <details class="bg-brand-card border border-brand-border rounded-xl p-4 group">
+            <summary class="font-bold text-sm text-slate-200 cursor-pointer flex justify-between items-center group-hover:text-brand-aqua">
+              <span>My Switch displays an orange screen or black screen on boot. What do I do?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+            </summary>
+            <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+              Hold the power button down for a full 15 seconds to force-shutdown the console. Ensure your SD card is seated properly, plug the USB-C cable in, and re-inject the payload with TegraRcmGUI.
+            </p>
+          </details>
+
+          <details class="bg-brand-card border border-brand-border rounded-xl p-4 group">
+            <summary class="font-bold text-sm text-slate-200 cursor-pointer flex justify-between items-center group-hover:text-brand-aqua">
+              <span>Can I update the system firmware when Nintendo releases a new version?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-500"></i>
+            </summary>
+            <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+              Do <strong>NOT</strong> update your system firmware immediately. Wait until Atmosphere and Hekate release an update supporting the new firmware version, update your SD card files first with Daybreak, and only then proceed.
+            </p>
+          </details>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- Post Author & Share -->
+    <div class="mt-14 pt-8 border-t border-brand-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs font-mono text-slate-400">
+      <div>
+        <span>Author: <strong class="text-brand-white">6IX PCS Tech Lab</strong> (Toronto, ON)</span>
+      </div>
+      <div class="flex items-center space-x-3">
+        <span>Share Guide:</span>
+        <a href="https://www.instagram.com/6ix_computers/" target="_blank" class="hover:text-brand-aqua transition"><i class="fa-brands fa-instagram text-base"></i></a>
+        <a href="https://www.tiktok.com/@6ix_pcs" target="_blank" class="hover:text-brand-aqua transition"><i class="fa-brands fa-tiktok text-base"></i></a>
+      </div>
+    </div>
+
+    <!-- Call to Action Banner -->
+    <section class="mt-12 bg-gradient-to-r from-brand-card to-slate-900 border border-brand-aqua/40 rounded-2xl p-8 text-center shadow-2xl glow-aqua">
+      <h3 class="font-brand text-xl md:text-2xl font-bold uppercase text-brand-white mb-2">
+        Don't Want to Risk Doing It Yourself?
+      </h3>
+      <p class="text-slate-400 text-sm max-w-xl mx-auto mb-6">
+        6IX PCS provides professional hardware modding, CFW installation, and thermal repasting in Toronto and the GTA with guaranteed turnaround.
+      </p>
+      <a href="index.html#quote-form" class="inline-flex items-center font-brand text-xs uppercase tracking-widest bg-brand-aqua text-black px-8 py-3.5 rounded-xl font-bold hover:bg-brand-aquaDark transition shadow-lg">
+        <span>Get A Modding Quote</span>
+        <i class="fa-solid fa-arrow-right ml-2"></i>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border py-8 text-center text-slate-500 text-xs font-mono">
+    <p>&copy; 2026 6IX PCS. Toronto, ON. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

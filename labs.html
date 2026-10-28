@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6IX PCS LABS | Tech Guides, Benchmarks & Modding Tutorials</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="6IX PCS LABS | Guides, Benchmarks & Modding">
+  <meta property="og:description" content="In-depth PC hardware benchmarks, game testing, step-by-step console modding instructions, and PC optimization guides.">
+  <meta property="og:image" content="https://6ixPcs.github.io/6ixpcs-website/logo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'BLANKA';
+      src: url('Blanka-Regular.otf') format('opentype'), url('Blanka-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'BLACKPAST';
+      src: url('Blackpast.otf') format('opentype'), url('Blackpast.ttf') format('truetype');
+      font-display: swap;
+    }
+    .font-brand { font-family: 'BLANKA', 'BLACKPAST', 'Syne', sans-serif; }
+    .glow-aqua { box-shadow: 0 0 25px rgba(0, 245, 212, 0.25); }
+    .glow-white { box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); }
+    .glass { background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              aqua: '#00F5D4',
+              aquaDark: '#00C4AA',
+              pureBlack: '#000000',
+              card: '#0A0C10',
+              border: '#1A202C',
+              white: '#FFFFFF'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-pureBlack text-slate-100 font-sans antialiased selection:bg-brand-aqua selection:text-black min-h-screen flex flex-col justify-between">
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 w-full z-50 glass border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-3 group">
+        <div class="w-11 h-11 rounded-full bg-brand-aqua flex items-center justify-center font-brand text-black font-extrabold text-xl group-hover:scale-105 transition shadow-lg glow-aqua">
+          SiX
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="font-brand text-2xl tracking-widest text-brand-white">PCS</span>
+          <span class="text-xs font-mono uppercase bg-brand-aqua/15 text-brand-aqua border border-brand-aqua/40 px-2 py-0.5 rounded font-bold tracking-wider">LABS</span>
+        </div>
+      </a>
+
+      <div class="flex items-center space-x-4 md:space-x-6">
+        <a href="index.html" class="text-xs md:text-sm font-mono text-slate-300 hover:text-brand-aqua transition flex items-center">
+          <i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Main Site
+        </a>
+        <a href="index.html#quote-form" class="font-brand text-xs md:text-sm bg-brand-aqua text-black px-4 py-2.5 rounded-xl font-bold hover:bg-brand-aquaDark transition shadow-lg glow-aqua uppercase tracking-wider">
+          GET QUOTE
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="pt-32 pb-12 px-4 max-w-6xl mx-auto border-b border-brand-border w-full">
+    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-brand-aqua/40 bg-brand-aqua/10 text-brand-aqua text-xs font-mono uppercase mb-4">
+      <i class="fa-solid fa-microchip"></i>
+      <span>Real Benchmarks • Step-by-Step Guides • GTA Hardware Lab</span>
+    </div>
+    
+    <h1 class="font-brand text-3xl md:text-5xl font-black tracking-wider uppercase text-brand-white mb-4">
+      6IX PCS <span class="text-brand-aqua">LABS & GUIDES</span>
+    </h1>
+    <p class="text-slate-400 text-sm md:text-base max-w-2xl leading-relaxed">
+      Practical setup guides for modded consoles, real-world hardware benchmarks, and Toronto PC builder tips. Straight data, zero fluff.
+    </p>
+
+    <!-- Filter Pills & Search Bar (LTT / Gamers Nexus Style) -->
+    <div class="mt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div class="flex flex-wrap gap-2" id="filter-container">
+        <button onclick="setFilter('all')" data-cat="all" class="filter-btn px-4 py-2 rounded-xl text-xs font-brand uppercase tracking-wider bg-brand-aqua text-black font-bold transition">All Posts</button>
+        <button onclick="setFilter('benchmark')" data-cat="benchmark" class="filter-btn px-4 py-2 rounded-xl text-xs font-brand uppercase tracking-wider bg-brand-card border border-brand-border text-slate-300 hover:border-brand-aqua transition">Benchmarks & Reviews</button>
+        <button onclick="setFilter('modding')" data-cat="modding" class="filter-btn px-4 py-2 rounded-xl text-xs font-brand uppercase tracking-wider bg-brand-card border border-brand-border text-slate-300 hover:border-brand-aqua transition">Console Modding</button>
+        <button onclick="setFilter('pc-guide')" data-cat="pc-guide" class="filter-btn px-4 py-2 rounded-xl text-xs font-brand uppercase tracking-wider bg-brand-card border border-brand-border text-slate-300 hover:border-brand-aqua transition">PC Guides & Tuning</button>
+      </div>
+
+      <div class="relative w-full md:w-72">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+        <input id="search-input" oninput="renderPosts()" type="text" placeholder="Search GPU, Switch, 3DS, thermals..." class="w-full bg-brand-card border border-brand-border rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-aqua transition">
+      </div>
+    </div>
+  </header>
+
+  <!-- Posts Grid (Dynamically rendered from posts.js or static fallback) -->
+  <main class="py-12 max-w-6xl mx-auto px-4 w-full flex-grow">
+    <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Cards will be populated dynamically by JavaScript -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="no-results" class="hidden text-center py-16">
+      <i class="fa-solid fa-circle-question text-4xl text-slate-600 mb-4"></i>
+      <h3 class="font-brand text-lg text-slate-300 uppercase tracking-wider">No matching guides or benchmarks found</h3>
+      <p class="text-slate-500 text-sm mt-1">Try another search term or reset the category filter.</p>
+    </div>
+  </main>
+
+  <!-- Labs Footer CTA -->
+  <section class="border-t border-brand-border bg-brand-card/40 py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="font-brand text-xl md:text-2xl font-bold uppercase text-brand-white mb-2">Need hardware help in the GTA?</h3>
+      <p class="text-slate-400 text-sm mb-6">Whether you need a custom gaming rig, component repasting, or console modding done right, we've got you covered.</p>
+      <a href="index.html#quote-form" class="inline-flex items-center font-brand text-xs uppercase tracking-widest bg-brand-aqua text-black px-6 py-3 rounded-xl font-bold hover:bg-brand-aquaDark transition shadow-lg glow-aqua">
+        <span>Get A Quote</span>
+        <i class="fa-solid fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-border py-8 text-center text-slate-500 text-xs font-mono">
+    <p>&copy; 2026 6IX PCS. Toronto, ON. All rights reserved.</p>
+  </footer>
+
+  <!-- Posts Database & Display Logic -->
+  <script src="posts.js"></script>
+  <script>
+    let activeCategory = 'all';
+
+    function setFilter(cat) {
+      activeCategory = cat;
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = "filter-btn px-4 py-2 rounded-xl text-xs font-brand uppercase tracking-wider bg-brand-aqua text-black font-bold transition shadow-lg glow-aqua";
+        } else {
+          btn.className = "filter-btn px-4 py-2 rounded-xl text-xs font-brand uppercase tracking-wider bg-brand-card border border-brand-border text-slate-300 hover:border-brand-aqua transition";
+        }
+      });
+      renderPosts();
+    }
+
+    function renderPosts() {
+      const grid = document.getElementById('posts-grid');
+      const noResults = document.getElementById('no-results');
+      const query = (document.getElementById('search-input').value || '').toLowerCase().trim();
+
+      if (!window.POSTS_DATA) {
+        return;
+      }
+
+      const filtered = window.POSTS_DATA.filter(post => {
+        const matchesCat = activeCategory === 'all' || post.category === activeCategory;
+        const matchesQuery = query === '' ||
+          post.title.toLowerCase().includes(query) ||
+          post.description.toLowerCase().includes(query) ||
+          (post.tags && post.tags.some(tag => tag.toLowerCase().includes(query)));
+        return matchesCat && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      grid.innerHTML = filtered.map(post => {
+        const badgeColor = post.category === 'benchmark' 
+          ? 'bg-brand-aqua/15 text-brand-aqua border-brand-aqua/30' 
+          : post.category === 'modding'
+            ? 'bg-purple-500/15 text-purple-300 border-purple-500/30'
+            : 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30';
+
+        const pills = (post.pills || []).map(pill => 
+          `<span class="bg-brand-pureBlack border border-brand-border px-2.5 py-1 rounded text-slate-300">${pill}</span>`
+        ).join('');
+
+        return `
+          <article class="bg-brand-card border border-brand-border rounded-2xl p-6 hover:border-brand-aqua/80 transition flex flex-col justify-between group shadow-lg">
+            <div>
+              <div class="flex justify-between items-center text-xs font-mono text-slate-400 mb-3">
+                <span class="${badgeColor} border px-2.5 py-0.5 rounded uppercase font-semibold">${post.categoryLabel}</span>
+                <span><i class="fa-regular fa-calendar mr-1"></i>${post.date}</span>
+              </div>
+
+              <a href="${post.url}" class="block">
+                <h2 class="font-brand text-xl font-bold text-brand-white group-hover:text-brand-aqua transition uppercase tracking-wide mb-2 leading-snug">
+                  ${post.title}
+                </h2>
+              </a>
+
+              <p class="text-slate-400 text-sm mb-5 leading-relaxed">
+                ${post.description}
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 mb-6 text-xs font-mono">
+                ${pills}
+              </div>
+            </div>
+
+            <a href="${post.url}" class="inline-flex items-center text-xs font-brand uppercase tracking-widest text-brand-aqua group-hover:text-brand-white transition">
+              <span>${post.ctaText || 'Read Full Post'}</span>
+              <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPosts();
+    });
+  </script>
+</body>
+</html>
